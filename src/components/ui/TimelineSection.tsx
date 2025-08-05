@@ -1,10 +1,10 @@
-import type React from 'react';
-import type { ReactNode } from 'react';
-import { SectionTitle } from './SectionTitle';
+import type React from 'react'
+import type { ReactNode } from 'react'
+import { SectionTitle } from './SectionTitle'
 
 interface TimelineSectionProps {
-	title: string;
-	children: ReactNode;
+	title: string
+	children: ReactNode
 }
 
 export const TimelineSection: React.FC<TimelineSectionProps> = ({
@@ -22,5 +22,5 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
 				{children}
 			</div>
 		</section>
-	);
-};
+	)
+}

@@ -1,19 +1,19 @@
-import { type FC, memo } from 'react';
-import { useFormatter, useTranslations } from 'use-intl';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SidebarCard } from './ui/SidebarCard';
-import { SidebarSection } from './ui/SidebarSection';
+import { type FC, memo } from 'react'
+import { useFormatter, useTranslations } from 'use-intl'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SidebarCard } from './ui/SidebarCard'
+import { SidebarSection } from './ui/SidebarSection'
 
 interface PublicationsProps {
-	publications: NonNullable<ResumeSchema['publications']>;
+	publications: NonNullable<ResumeSchema['publications']>
 }
 
 export const Publications: FC<PublicationsProps> = memo(({ publications }) => {
-	const f = useFormatter();
-	const t = useTranslations();
+	const f = useFormatter()
+	const t = useTranslations()
 
 	if (!publications?.length) {
-		return null;
+		return null
 	}
 
 	return (
@@ -34,5 +34,5 @@ export const Publications: FC<PublicationsProps> = memo(({ publications }) => {
 				/>
 			))}
 		</SidebarSection>
-	);
-});
+	)
+})

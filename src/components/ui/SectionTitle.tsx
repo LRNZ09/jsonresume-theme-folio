@@ -1,13 +1,13 @@
-import type { FC, ReactNode } from 'react';
-import { useTranslations } from 'use-intl';
-import { colors } from '../../lib/styleTokens';
-import { cn } from '../../lib/utils';
+import type { FC, ReactNode } from 'react'
+import { useTranslations } from 'use-intl'
+import { colors } from '../../lib/styleTokens'
+import { cn } from '../../lib/utils'
 
 interface SectionTitleProps {
-	children?: ReactNode;
-	title?: string;
-	id?: string;
-	className?: string;
+	children?: ReactNode
+	title?: string
+	id?: string
+	className?: string
 }
 
 export const SectionTitle: FC<SectionTitleProps> = ({
@@ -16,8 +16,8 @@ export const SectionTitle: FC<SectionTitleProps> = ({
 	id,
 	className,
 }) => {
-	const t = useTranslations();
-	const content = children || (title ? t(title) : null);
+	const t = useTranslations()
+	const content = children || (title ? t(title) : null)
 
 	return (
 		<h2
@@ -32,5 +32,5 @@ export const SectionTitle: FC<SectionTitleProps> = ({
 			<span>{content}</span>
 			<span className='flex-grow ml-1 border-b border-brand print:hidden'></span>
 		</h2>
-	);
-};
+	)
+}

@@ -1,28 +1,28 @@
-import type React from 'react';
-import { useFormatter, useTranslations } from 'use-intl';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SidebarCard } from './ui/SidebarCard';
-import { SidebarSection } from './ui/SidebarSection';
-import { CertificateIcon } from '@phosphor-icons/react';
+import type React from 'react'
+import { useFormatter, useTranslations } from 'use-intl'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SidebarCard } from './ui/SidebarCard'
+import { SidebarSection } from './ui/SidebarSection'
+import { CertificateIcon } from '@phosphor-icons/react'
 
-type Certificate = NonNullable<ResumeSchema['certificates']>[number];
+type Certificate = NonNullable<ResumeSchema['certificates']>[number]
 
 interface CertificatesProps {
-	certificates?: Certificate[];
+	certificates?: Certificate[]
 }
 
 export const Certificates: React.FC<CertificatesProps> = ({ certificates }) => {
-	const f = useFormatter();
-	const t = useTranslations();
+	const f = useFormatter()
+	const t = useTranslations()
 
-	if (!certificates?.length) return null;
+	if (!certificates?.length) return null
 
 	return (
 		<SidebarSection title='sections.certificates' contentClassName='space-y-3'>
 			{certificates.map((certificate, index) => {
 				const dateInfo = certificate.date
 					? `${t('date.label')}: ${f.dateTime(new Date(certificate.date))}`
-					: '';
+					: ''
 
 				return (
 					<SidebarCard
@@ -44,8 +44,8 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates }) => {
 						url={certificate.url}
 						urlLabel={t('common.viewCertificate')}
 					/>
-				);
+				)
 			})}
 		</SidebarSection>
-	);
-};
+	)
+}

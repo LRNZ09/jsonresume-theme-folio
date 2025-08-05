@@ -1,15 +1,15 @@
-import type React from 'react';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SidebarSection } from './ui/SidebarSection';
-import { Tag } from './ui/Tag';
-import { TagList } from './ui/TagList';
+import type React from 'react'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SidebarSection } from './ui/SidebarSection'
+import { Tag } from './ui/Tag'
+import { TagList } from './ui/TagList'
 
 interface SkillsProps {
-	skills: ResumeSchema['skills'];
+	skills: ResumeSchema['skills']
 }
 
 export const Skills: React.FC<SkillsProps> = ({ skills }) => {
-	if (!skills?.length) return null;
+	if (!skills?.length) return null
 
 	return (
 		<SidebarSection
@@ -39,5 +39,5 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
 				</div>
 			))}
 		</SidebarSection>
-	);
-};
+	)
+}

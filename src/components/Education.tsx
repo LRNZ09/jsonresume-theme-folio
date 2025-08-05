@@ -1,23 +1,23 @@
-import type { FC } from 'react';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SectionCard } from './ui/SectionCard';
-import { TimelineEntry } from './ui/TimelineEntry';
-import { TimelineSection } from './ui/TimelineSection';
+import type { FC } from 'react'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SectionCard } from './ui/SectionCard'
+import { TimelineEntry } from './ui/TimelineEntry'
+import { TimelineSection } from './ui/TimelineSection'
 
-type Education = NonNullable<ResumeSchema['education']>[number];
+type Education = NonNullable<ResumeSchema['education']>[number]
 
 interface EducationProps {
-	education?: Education[];
+	education?: Education[]
 }
 
 export const Education: FC<EducationProps> = ({ education }) => {
-	if (!education || education.length === 0) return null;
+	if (!education || education.length === 0) return null
 
 	return (
 		<TimelineSection title='sections.education'>
 			{education.map((education, index) => {
-				const title = education.studyType || education.area || '';
-				const institution = education.institution || '';
+				const title = education.studyType || education.area || ''
+				const institution = education.institution || ''
 				return (
 					<TimelineEntry
 						key={`education-${index}`}
@@ -33,8 +33,8 @@ export const Education: FC<EducationProps> = ({ education }) => {
 							tags={education.courses || []}
 						/>
 					</TimelineEntry>
-				);
+				)
 			})}
 		</TimelineSection>
-	);
-};
+	)
+}

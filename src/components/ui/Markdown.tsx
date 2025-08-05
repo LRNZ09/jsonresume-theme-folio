@@ -1,15 +1,15 @@
-import type React from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { cn } from '../../lib/utils';
+import type React from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { cn } from '../../lib/utils'
 
 interface MarkdownProps {
-	content?: string;
-	className?: string;
+	content?: string
+	className?: string
 }
 
 export const Markdown: React.FC<MarkdownProps> = ({ content, className }) => {
-	if (!content) return null;
+	if (!content) return null
 
 	return (
 		<div
@@ -19,5 +19,5 @@ export const Markdown: React.FC<MarkdownProps> = ({ content, className }) => {
 		>
 			<ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
 		</div>
-	);
-};
+	)
+}

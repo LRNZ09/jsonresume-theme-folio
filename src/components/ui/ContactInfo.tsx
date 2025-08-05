@@ -1,15 +1,15 @@
-import type { FC } from 'react';
-import { useTranslations } from 'use-intl';
-import { AtIcon, GlobeIcon, PhoneIcon } from '@phosphor-icons/react';
+import type { FC } from 'react'
+import { useTranslations } from 'use-intl'
+import { AtIcon, GlobeIcon, PhoneIcon } from '@phosphor-icons/react'
 
 interface ContactInfoProps {
-	email?: string;
-	phone?: string;
-	url?: string;
+	email?: string
+	phone?: string
+	url?: string
 }
 
 export const ContactInfo: FC<ContactInfoProps> = ({ email, phone, url }) => {
-	const t = useTranslations();
+	const t = useTranslations()
 
 	return (
 		<div
@@ -59,5 +59,5 @@ export const ContactInfo: FC<ContactInfoProps> = ({ email, phone, url }) => {
 				</a>
 			)}
 		</div>
-	);
-};
+	)
+}

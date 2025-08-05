@@ -1,11 +1,11 @@
-import type { FC, ReactNode } from 'react';
-import { borders, colors, typography } from '../../lib/styleTokens';
-import { cn } from '../../lib/utils';
+import type { FC, ReactNode } from 'react'
+import { borders, colors, typography } from '../../lib/styleTokens'
+import { cn } from '../../lib/utils'
 
 interface TagProps {
-	children: ReactNode;
-	className?: string;
-	variant?: 'default' | 'brand' | 'accent' | 'muted';
+	children: ReactNode
+	className?: string
+	variant?: 'default' | 'brand' | 'accent' | 'muted'
 }
 
 export const Tag: FC<TagProps> = ({
@@ -18,7 +18,7 @@ export const Tag: FC<TagProps> = ({
 		brand: `${colors.bg.tag.brand} ${colors.border.brand} ${colors.text.brand}`,
 		accent: `${colors.bg.tag.accent} ${colors.border.accent} ${colors.text.accent}`,
 		muted: `${colors.bg.tag.muted} ${colors.border.muted} ${colors.text.tertiary}`,
-	};
+	}
 
 	return (
 		<span
@@ -32,5 +32,5 @@ export const Tag: FC<TagProps> = ({
 		>
 			{children}
 		</span>
-	);
-};
+	)
+}

@@ -1,20 +1,20 @@
-import { type FC, memo, type ReactNode } from 'react';
-import { borders, colors, spacing, typography } from '../../lib/styleTokens';
-import { cn } from '../../lib/utils';
-import { Markdown } from './Markdown';
+import { type FC, memo, type ReactNode } from 'react'
+import { borders, colors, spacing, typography } from '../../lib/styleTokens'
+import { cn } from '../../lib/utils'
+import { Markdown } from './Markdown'
 
 interface SidebarCardProps {
-	title?: ReactNode;
-	titleClassName?: string;
-	subtitle?: string;
-	subtitleClassName?: string;
-	date?: string;
-	url?: string;
-	urlLabel?: string;
-	content?: string;
-	children?: ReactNode;
-	className?: string;
-	id?: string;
+	title?: ReactNode
+	titleClassName?: string
+	subtitle?: string
+	subtitleClassName?: string
+	date?: string
+	url?: string
+	urlLabel?: string
+	content?: string
+	children?: ReactNode
+	className?: string
+	id?: string
 }
 
 export const SidebarCard: FC<SidebarCardProps> = memo(
@@ -33,10 +33,10 @@ export const SidebarCard: FC<SidebarCardProps> = memo(
 	}) => {
 		// Generate a unique ID for ARIA relationships if not provided
 		const cardId =
-			id || `sidebar-card-${Math.random().toString(36).substr(2, 9)}`;
-		const titleId = `${cardId}-title`;
-		const subtitleId = `${cardId}-subtitle`;
-		const contentId = `${cardId}-content`;
+			id || `sidebar-card-${Math.random().toString(36).substr(2, 9)}`
+		const titleId = `${cardId}-title`
+		const subtitleId = `${cardId}-subtitle`
+		const contentId = `${cardId}-content`
 
 		return (
 			<div
@@ -108,6 +108,6 @@ export const SidebarCard: FC<SidebarCardProps> = memo(
 
 				{children && <div className='mt-1.5 print:mt-0.5'>{children}</div>}
 			</div>
-		);
+		)
 	},
-);
+)

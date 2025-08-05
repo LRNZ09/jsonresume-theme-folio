@@ -1,12 +1,12 @@
-import deTranslations from './locales/de.json';
-import en from './locales/en.json';
-import esTranslations from './locales/es.json';
-import frTranslations from './locales/fr.json';
-import itTranslations from './locales/it.json';
-import ruTranslations from './locales/ru.json';
-import zhTranslations from './locales/zh.json';
+import deTranslations from './locales/de.json'
+import en from './locales/en.json'
+import esTranslations from './locales/es.json'
+import frTranslations from './locales/fr.json'
+import itTranslations from './locales/it.json'
+import ruTranslations from './locales/ru.json'
+import zhTranslations from './locales/zh.json'
 
-export type Locale = 'en' | 'de' | 'fr' | 'es' | 'it' | 'ru' | 'zh';
+export type Locale = 'en' | 'de' | 'fr' | 'es' | 'it' | 'ru' | 'zh'
 
 export const locales = {
 	en: {
@@ -37,4 +37,4 @@ export const locales = {
 		messages: zhTranslations,
 		name: '中文',
 	},
-};
+}

@@ -1,16 +1,16 @@
-import type { FC } from 'react';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SidebarSection } from './ui/SidebarSection';
-import { Tag } from './ui/Tag';
-import { TagList } from './ui/TagList';
+import type { FC } from 'react'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SidebarSection } from './ui/SidebarSection'
+import { Tag } from './ui/Tag'
+import { TagList } from './ui/TagList'
 
 interface InterestsProps {
-	interests?: ResumeSchema['interests'];
+	interests?: ResumeSchema['interests']
 }
 
 export const Interests: FC<InterestsProps> = ({ interests }) => {
 	if (!interests?.length) {
-		return null;
+		return null
 	}
 
 	return (
@@ -33,5 +33,5 @@ export const Interests: FC<InterestsProps> = ({ interests }) => {
 				</div>
 			))}
 		</SidebarSection>
-	);
-};
+	)
+}

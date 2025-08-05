@@ -1,27 +1,27 @@
-import { type FC, memo, type ReactNode } from 'react';
-import { useTranslations } from 'use-intl';
-import { borders, colors, spacing, typography } from '../../lib/styleTokens';
-import { cn } from '../../lib/utils';
-import { Markdown } from './Markdown';
-import { Tag } from './Tag';
-import { TagList } from './TagList';
-import { ArrowSquareOutIcon, MapPinIcon } from '@phosphor-icons/react';
+import { type FC, memo, type ReactNode } from 'react'
+import { useTranslations } from 'use-intl'
+import { borders, colors, spacing, typography } from '../../lib/styleTokens'
+import { cn } from '../../lib/utils'
+import { Markdown } from './Markdown'
+import { Tag } from './Tag'
+import { TagList } from './TagList'
+import { ArrowSquareOutIcon, MapPinIcon } from '@phosphor-icons/react'
 
 interface SectionCardProps {
-	title?: string;
-	subtitle?: string | ReactNode;
-	url?: string;
-	location?: string;
-	date?: string;
-	tags?: string[];
-	highlightTitle?: string;
-	highlights?: string[];
-	summary?: string;
-	children?: ReactNode;
-	className?: string;
-	id?: string;
-	actionUrl?: string;
-	actionLabelKey?: string;
+	title?: string
+	subtitle?: string | ReactNode
+	url?: string
+	location?: string
+	date?: string
+	tags?: string[]
+	highlightTitle?: string
+	highlights?: string[]
+	summary?: string
+	children?: ReactNode
+	className?: string
+	id?: string
+	actionUrl?: string
+	actionLabelKey?: string
 }
 
 export const SectionCard: FC<SectionCardProps> = memo(
@@ -41,14 +41,12 @@ export const SectionCard: FC<SectionCardProps> = memo(
 		actionUrl,
 		actionLabelKey,
 	}) => {
-		const t = useTranslations();
+		const t = useTranslations()
 
-		const cardId = id ? `card-${id}` : undefined;
-		const titleId = title ? `title-${cardId}` : undefined;
-		const summaryId = summary ? `summary-${cardId}` : undefined;
-		const highlightsId = highlights?.length
-			? `highlights-${cardId}`
-			: undefined;
+		const cardId = id ? `card-${id}` : undefined
+		const titleId = title ? `title-${cardId}` : undefined
+		const summaryId = summary ? `summary-${cardId}` : undefined
+		const highlightsId = highlights?.length ? `highlights-${cardId}` : undefined
 
 		return (
 			<div
@@ -171,6 +169,6 @@ export const SectionCard: FC<SectionCardProps> = memo(
 					{children && <div className='mt-2 print:mt-0.5'>{children}</div>}
 				</div>
 			</div>
-		);
+		)
 	},
-);
+)

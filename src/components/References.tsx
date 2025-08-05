@@ -1,17 +1,17 @@
-import type { FC } from 'react';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SidebarCard } from './ui/SidebarCard';
-import { SidebarSection } from './ui/SidebarSection';
+import type { FC } from 'react'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SidebarCard } from './ui/SidebarCard'
+import { SidebarSection } from './ui/SidebarSection'
 
-type Reference = NonNullable<ResumeSchema['references']>[number];
+type Reference = NonNullable<ResumeSchema['references']>[number]
 
 interface ReferencesProps {
-	references?: Reference[];
+	references?: Reference[]
 }
 
 export const References: FC<ReferencesProps> = ({ references }) => {
 	if (!references?.length) {
-		return null;
+		return null
 	}
 
 	return (
@@ -24,5 +24,5 @@ export const References: FC<ReferencesProps> = ({ references }) => {
 				/>
 			))}
 		</SidebarSection>
-	);
-};
+	)
+}

@@ -1,17 +1,17 @@
-import type { FC } from 'react';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SectionCard } from './ui/SectionCard';
-import { TimelineEntry } from './ui/TimelineEntry';
-import { TimelineSection } from './ui/TimelineSection';
+import type { FC } from 'react'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SectionCard } from './ui/SectionCard'
+import { TimelineEntry } from './ui/TimelineEntry'
+import { TimelineSection } from './ui/TimelineSection'
 
-type Volunteer = NonNullable<ResumeSchema['volunteer']>[number];
+type Volunteer = NonNullable<ResumeSchema['volunteer']>[number]
 
 interface VolunteerProps {
-	volunteer?: Volunteer[];
+	volunteer?: Volunteer[]
 }
 
 export const Volunteer: FC<VolunteerProps> = ({ volunteer }) => {
-	if (!volunteer?.length) return null;
+	if (!volunteer?.length) return null
 
 	return (
 		<TimelineSection title='sections.volunteer'>
@@ -33,5 +33,5 @@ export const Volunteer: FC<VolunteerProps> = ({ volunteer }) => {
 				</TimelineEntry>
 			))}
 		</TimelineSection>
-	);
-};
+	)
+}

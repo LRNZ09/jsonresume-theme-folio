@@ -117,7 +117,7 @@
 	}
 
 	html {
-		@apply /* bg-surface */ text-foreground text-[13px] antialiased;
+		@/* bg-surface */ apply text-foreground text-[13px] antialiased;
 		-webkit-print-color-adjust: exact;
 		print-color-adjust: exact;
 		font-family:
@@ -126,11 +126,11 @@
 	}
 
 	body {
-		@apply m-0 /* bg-surface */ text-foreground;
+		@/* bg-surface */ apply m-0 /* bg-surface */ text-foreground;
 	}
 
 	a {
-		@apply transition-colors /* text-primary-dark */ hover:text-primary hover:underline;
+		@/* text-primary-dark */ apply transition-colors /* text-primary-dark */ hover:text-primary hover:underline;
 	}
 
 	h1,
@@ -206,7 +206,7 @@
 }
 
 .markdown a {
-	@apply /* text-brand */ hover:underline;
+	@/* text-brand */ apply hover:underline;
 }
 
 .markdown ul {
@@ -238,11 +238,11 @@
 }
 
 .markdown code {
-	@apply px-1 py-0.5 /* bg-color-secondary */ text-sm rounded;
+	@/* bg-color-secondary */ apply px-1 py-0.5 /* bg-color-secondary */ text-sm rounded;
 }
 
 .markdown pre {
-	@apply p-2 mb-3 overflow-x-auto rounded-md /* bg-color-secondary */;
+	@/* bg-color-secondary */ apply p-2 mb-3 overflow-x-auto rounded-md;
 }
 
 .markdown pre code {
@@ -250,11 +250,11 @@
 }
 
 .markdown blockquote {
-	@apply pl-4 my-3 italic border-l-4 /* border-color */;
+	@/* border-color */ apply pl-4 my-3 italic border-l-4;
 }
 
 .markdown hr {
-	@apply my-4 /* border-color */;
+	@/* border-color */ apply my-4;
 }
 
 .markdown strong {

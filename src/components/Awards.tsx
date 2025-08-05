@@ -1,22 +1,22 @@
-import type React from 'react';
-import { useFormatter, useTranslations } from 'use-intl';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SidebarCard } from './ui/SidebarCard';
-import { SidebarSection } from './ui/SidebarSection';
-import { TrophyIcon } from '@phosphor-icons/react';
+import type React from 'react'
+import { useFormatter, useTranslations } from 'use-intl'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SidebarCard } from './ui/SidebarCard'
+import { SidebarSection } from './ui/SidebarSection'
+import { TrophyIcon } from '@phosphor-icons/react'
 
-type Award = NonNullable<ResumeSchema['awards']>[number];
+type Award = NonNullable<ResumeSchema['awards']>[number]
 
 interface AwardsProps {
-	awards?: Award[];
+	awards?: Award[]
 }
 
 export const Awards: React.FC<AwardsProps> = ({ awards }) => {
-	const f = useFormatter();
-	const t = useTranslations();
+	const f = useFormatter()
+	const t = useTranslations()
 
 	if (!awards?.length) {
-		return null;
+		return null
 	}
 
 	return (
@@ -24,7 +24,7 @@ export const Awards: React.FC<AwardsProps> = ({ awards }) => {
 			{awards.map((award, index) => {
 				const dateInfo = award.date
 					? `${t('date.label')}: ${f.dateTime(new Date(award.date))}`
-					: '';
+					: ''
 
 				return (
 					<SidebarCard
@@ -47,8 +47,8 @@ export const Awards: React.FC<AwardsProps> = ({ awards }) => {
 						urlLabel={t('common.viewAward')}
 						content={award.summary as string}
 					/>
-				);
+				)
 			})}
 		</SidebarSection>
-	);
-};
+	)
+}

@@ -1,13 +1,13 @@
-import type React from 'react';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { SidebarSection } from './ui/SidebarSection';
+import type React from 'react'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { SidebarSection } from './ui/SidebarSection'
 
 interface LanguagesProps {
-	languages: ResumeSchema['languages'];
+	languages: ResumeSchema['languages']
 }
 
 export const Languages: React.FC<LanguagesProps> = ({ languages }) => {
-	if (!languages?.length) return null;
+	if (!languages?.length) return null
 
 	return (
 		<SidebarSection
@@ -27,5 +27,5 @@ export const Languages: React.FC<LanguagesProps> = ({ languages }) => {
 				</div>
 			))}
 		</SidebarSection>
-	);
-};
+	)
+}

@@ -5,22 +5,22 @@
  * It is included in `src/index.html`.
  */
 
-import { createRoot } from 'react-dom/client';
-import { App } from './app';
-import { StrictMode } from 'react';
-import resume from '../resume.json';
+import { createRoot } from 'react-dom/client'
+import { App } from './app'
+import { StrictMode } from 'react'
+import resume from '../resume.json'
 
 function start() {
-	const root = createRoot(document.getElementById('root')!);
+	const root = createRoot(document.getElementById('root')!)
 	root.render(
 		<StrictMode>
 			<App resume={resume} />
 		</StrictMode>,
-	);
+	)
 }
 
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', start);
+	document.addEventListener('DOMContentLoaded', start)
 } else {
-	start();
+	start()
 }

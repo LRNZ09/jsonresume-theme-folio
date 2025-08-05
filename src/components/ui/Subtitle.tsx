@@ -1,11 +1,11 @@
-import type { FC, ReactNode } from 'react';
-import { useTranslations } from 'use-intl';
-import { cn } from '../../lib/utils';
+import type { FC, ReactNode } from 'react'
+import { useTranslations } from 'use-intl'
+import { cn } from '../../lib/utils'
 
 interface SubtitleProps {
-	title: string;
-	subtitle?: ReactNode;
-	subtitleUrl?: string;
+	title: string
+	subtitle?: ReactNode
+	subtitleUrl?: string
 }
 
 export const Subtitle: FC<SubtitleProps> = ({
@@ -13,9 +13,9 @@ export const Subtitle: FC<SubtitleProps> = ({
 	subtitle,
 	subtitleUrl,
 }) => {
-	const t = useTranslations();
+	const t = useTranslations()
 
-	if (!subtitle) return <>{title}</>;
+	if (!subtitle) return <>{title}</>
 
 	const subtitleElement = (
 		<span
@@ -26,7 +26,7 @@ export const Subtitle: FC<SubtitleProps> = ({
 		>
 			{subtitle}
 		</span>
-	);
+	)
 
 	return (
 		<>
@@ -47,5 +47,5 @@ export const Subtitle: FC<SubtitleProps> = ({
 				subtitleElement
 			)}
 		</>
-	);
-};
+	)
+}

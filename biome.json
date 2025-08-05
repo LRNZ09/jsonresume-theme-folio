@@ -10,7 +10,8 @@
 	"javascript": {
 		"formatter": {
 			"jsxQuoteStyle": "single",
-			"quoteStyle": "single"
+			"quoteStyle": "single",
+			"semicolons": "asNeeded"
 		}
 	},
 	"vcs": {

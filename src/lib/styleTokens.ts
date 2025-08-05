@@ -33,7 +33,7 @@ export const spacing = {
 			mobile: 'sm:space-y-2',
 		},
 	},
-};
+}
 
 export const typography = {
 	size: {
@@ -69,7 +69,7 @@ export const typography = {
 		tertiary: 'text-foreground-tertiary',
 		brand: 'text-brand',
 	},
-};
+}
 
 export const borders = {
 	radius: {
@@ -87,7 +87,7 @@ export const borders = {
 		default: 'border-color',
 		brand: 'border-brand',
 	},
-};
+}
 
 export const colors = {
 	bg: {
@@ -113,7 +113,7 @@ export const colors = {
 		accent: 'border-accent/20',
 		muted: 'border-color',
 	},
-};
+}
 
 export const breakpoints = {
 	sm: 'sm:',
@@ -121,4 +121,4 @@ export const breakpoints = {
 	lg: 'lg:',
 	xl: 'xl:',
 	print: 'print:',
-};
+}

@@ -1,17 +1,17 @@
-import { type FC, memo } from 'react';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { Summary } from './Summary';
-import { ContactInfo } from './ui/ContactInfo';
-import { SocialProfiles } from './ui/SocialProfiles';
-import { HouseLineIcon } from '@phosphor-icons/react';
+import { type FC, memo } from 'react'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { Summary } from './Summary'
+import { ContactInfo } from './ui/ContactInfo'
+import { SocialProfiles } from './ui/SocialProfiles'
+import { HouseLineIcon } from '@phosphor-icons/react'
 
 interface HeaderProps {
-	basics: NonNullable<ResumeSchema['basics']>;
+	basics: NonNullable<ResumeSchema['basics']>
 }
 
 export const Header: FC<HeaderProps> = memo(({ basics }) => {
 	const { name, label, email, phone, url, profiles, location, summary, image } =
-		basics;
+		basics
 
 	return (
 		<header className='relative mb-2 print:mb-0 print:p-0'>
@@ -66,5 +66,5 @@ export const Header: FC<HeaderProps> = memo(({ basics }) => {
 				)}
 			</div>
 		</header>
-	);
-});
+	)
+})

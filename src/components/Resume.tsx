@@ -1,20 +1,20 @@
-import { type FC, memo } from 'react';
-import type { ResumeSchema } from '../types/resumeSchema';
-import { Awards } from './Awards';
-import { Certificates } from './Certificates';
-import { Education } from './Education';
-import { Header } from './Header';
-import { Interests } from './Interests';
-import { Languages } from './Languages';
-import { Projects } from './Projects';
-import { Publications } from './Publications';
-import { References } from './References';
-import { Skills } from './Skills';
-import { Volunteer } from './Volunteer';
-import { WorkExperience } from './WorkExperience';
+import { type FC, memo } from 'react'
+import type { ResumeSchema } from '../types/resumeSchema'
+import { Awards } from './Awards'
+import { Certificates } from './Certificates'
+import { Education } from './Education'
+import { Header } from './Header'
+import { Interests } from './Interests'
+import { Languages } from './Languages'
+import { Projects } from './Projects'
+import { Publications } from './Publications'
+import { References } from './References'
+import { Skills } from './Skills'
+import { Volunteer } from './Volunteer'
+import { WorkExperience } from './WorkExperience'
 
 interface ResumeProps {
-	resume: ResumeSchema;
+	resume: ResumeSchema
 }
 
 export const Resume: FC<ResumeProps> = memo(({ resume }) => {
@@ -31,9 +31,9 @@ export const Resume: FC<ResumeProps> = memo(({ resume }) => {
 		interests,
 		references,
 		volunteer,
-	} = resume;
+	} = resume
 
-	if (!basics) return null;
+	if (!basics) return null
 
 	return (
 		<div
@@ -78,7 +78,7 @@ export const Resume: FC<ResumeProps> = memo(({ resume }) => {
 				</div>
 			</div>
 		</div>
-	);
-});
+	)
+})
 
-export default Resume;
+export default Resume

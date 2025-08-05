@@ -8,12 +8,13 @@
 import { createRoot } from 'react-dom/client';
 import { App } from './app';
 import { StrictMode } from 'react';
+import resume from '../resume.json';
 
 function start() {
 	const root = createRoot(document.getElementById('root')!);
 	root.render(
 		<StrictMode>
-			<App />
+			<App resume={resume} />
 		</StrictMode>,
 	);
 }

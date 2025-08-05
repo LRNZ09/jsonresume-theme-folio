@@ -5,7 +5,7 @@ import type { ResumeSchema } from './types/resumeSchema';
 import { IntlProvider } from 'use-intl';
 
 interface AppProps {
-	resume?: ResumeSchema;
+	resume: ResumeSchema;
 	locale?: Locale;
 }
 
@@ -19,7 +19,11 @@ const App: FC<AppProps> = ({ resume, locale = 'en' }) => {
 	// }, [language]);
 
 	return (
-		<IntlProvider messages={locales[locale].messages} locale={locale}>
+		<IntlProvider
+			messages={locales[locale].messages}
+			locale={locale}
+			timeZone='UTC'
+		>
 			<Resume resume={resume} />
 		</IntlProvider>
 	);

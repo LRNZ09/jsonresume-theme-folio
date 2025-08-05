@@ -1,6 +1,6 @@
 {
-  "name": "jsonresume-theme-react",
-  "version": "0.0.3",
+  "name": "jsonresume-theme-folio",
+  "version": "0.0.1",
   "description": "A React-based theme for JSON Resume",
   "type": "module",
   "main": "index.cjs",
@@ -32,9 +32,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/phoinixi/jsonresume-theme-react.git"
+    "url": "https://github.com:LRNZ09/jsonresume-theme-folio.git"
   },
-  "author": "Francesco Esposito",
+  "author": "Lorenzo Pieri",
   "license": "MIT",
   "dependencies": {
     "@jsonresume/schema": "1.2.1",

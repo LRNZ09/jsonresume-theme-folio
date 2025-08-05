@@ -26,8 +26,8 @@ A modern, responsive React-based theme for [JSON Resume](https://jsonresume.org/
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/phoinixi/jsonresume-theme-react.git
-   cd jsonresume-theme-react
+   git clone https://github.com/LRNZ09/jsonresume-theme-folio.git
+   cd jsonresume-theme-folio
    ```
 
 2. Install dependencies:

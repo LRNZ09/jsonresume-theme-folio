@@ -1,6 +1,6 @@
-# Contributing to jsonresume-theme-react
+# Contributing to jsonresume-theme-folio
 
-Thank you for considering contributing to jsonresume-theme-react! This document provides guidelines and instructions for contributing to this project.
+Thank you for considering contributing to jsonresume-theme-folio! This document provides guidelines and instructions for contributing to this project.
 
 ## Code of Conduct
 

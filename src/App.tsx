@@ -3,6 +3,7 @@ import { Resume } from './components/Resume';
 import { locales, type Locale } from './i18n/config';
 import type { ResumeSchema } from './types/resumeSchema';
 import { IntlProvider } from 'use-intl';
+import { IconContext } from '@phosphor-icons/react';
 
 interface AppProps {
 	resume: ResumeSchema;
@@ -24,7 +25,9 @@ const App: FC<AppProps> = ({ resume, locale = 'en' }) => {
 			locale={locale}
 			timeZone='UTC'
 		>
-			<Resume resume={resume} />
+			<IconContext.Provider value={{ size: 16, weight: 'duotone' }}>
+				<Resume resume={resume} />
+			</IconContext.Provider>
 		</IntlProvider>
 	);
 };

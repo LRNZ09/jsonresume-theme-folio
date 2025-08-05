@@ -1,7 +1,7 @@
 import { type FC, memo } from 'react';
 import { useTranslations } from 'use-intl';
-import { getIcon } from '../../lib/socialIcons';
 import type { ResumeSchema } from '../../types/resumeSchema';
+import { NetworkIcon } from './NetworkIcon';
 
 interface SocialProfilesProps {
 	profiles?: NonNullable<ResumeSchema['basics']>['profiles'];
@@ -18,26 +18,17 @@ export const SocialProfiles: FC<SocialProfilesProps> = memo(({ profiles }) => {
 				{profiles.map((profile, index) => {
 					if (!profile.network) return null;
 
-					const iconData = getIcon(profile.network);
-					// Use default values when icon is not found
-					const Icon = iconData?.icon;
-					const color = iconData?.color || '#6c6c6c';
-
 					return (
 						<a
 							key={index}
 							href={profile.url}
 							target='_blank'
 							rel='noopener noreferrer'
-							className='inline-flex gap-1 items-center text-sm hover:text-foreground-muted'
+							className='inline-flex items-center gap-1 text-sm hover:text-foreground-muted hover:underline'
 							title={`${profile.network} ${t('common.profile')}`}
 						>
-							{Icon ? (
-								<Icon style={{ color }} className='w-4 h-4' />
-							) : (
-								<span className='inline-block w-4 h-4'>•</span>
-							)}
-							<span className='hover:underline'>{profile.network}</span>
+							<NetworkIcon name={profile.network} />
+							{profile.network}
 						</a>
 					);
 				})}

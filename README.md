@@ -1,13 +1,11 @@
-# JSON Resume Theme React
+# jsonresume-theme-folio
 
-![](screenshot.png)
-
-A modern, responsive React-based theme for [JSON Resume](https://jsonresume.org/), built with React, TypeScript, and Vite.
+A modern, responsive React-based theme for [JSON Resume](https://jsonresume.org/), built with Bun, TypeScript, and React.
 
 ## Features
 
-- 🚀 **Modern Stack**: Built with React 18, TypeScript, and Vite
-- 🌐 **Multilingual Support**: Built-in internationalization with i18next
+- 🚀 **Modern Stack**: Built with Bun, TypeScript, and React 19
+- 🌐 **Multilingual Support**: Built-in internationalization with `use-intl`
 - 🎨 **Modern UI**: Clean, professional design with Tailwind CSS
 - 📱 **Responsive Design**: Optimized for all devices
 - 📝 **Markdown Support**: Rich text formatting in descriptions
@@ -18,8 +16,7 @@ A modern, responsive React-based theme for [JSON Resume](https://jsonresume.org/
 
 ### Prerequisites
 
-- Node.js 20+
-- npm 9+
+- `bun` ^1.2.0
 
 ### Getting Started
 
@@ -33,13 +30,13 @@ A modern, responsive React-based theme for [JSON Resume](https://jsonresume.org/
 2. Install dependencies:
 
    ```bash
-   npm install
+   bun install
    ```
 
 3. Start the development server:
 
    ```bash
-   npm run dev
+   bun dev
    ```
 
 4. Create your resume:
@@ -48,9 +45,11 @@ A modern, responsive React-based theme for [JSON Resume](https://jsonresume.org/
    - For multiple languages, create files like `resume-fr.json`, `resume-de.json`, etc.
 
 5. Build and render your resume:
+
    ```bash
-   npm run render:resumed
+   bun run render:resumed
    ```
+
    This will:
    - Build the theme
    - Render your resume
@@ -76,25 +75,25 @@ The theme supports multiple languages using the `language` property within your 
     ```
 
 2.  **Rendering:**
-    When you run the render script (`npm run render:local` or using `resumed`), the theme will read the root `language` property and load the corresponding translations.
+    When you run the render script (`bun run render:local` or using `resumed`), the theme will read the root `language` property and load the corresponding translations.
 
     The rendered output file (`public/index.html` by default) will be in the language specified in the JSON.
 
 3.  **Development Server:**
-    The development server (`npm run dev`) will also respect the root `language` set in the `resume.json` file used for preview.
+    The development server (`bun dev`) will also respect the root `language` set in the `resume.json` file used for preview.
 
 **Note:** While you _can_ maintain separate files like `resume-en.json`, `resume-fr.json` for organizational purposes, the theme itself only cares about the root `language` property within the specific JSON file being rendered or previewed.
 
 ### Available Scripts
 
-- `npm run dev`: Start development server
-- `npm run build`: Build the theme for production
-- `npm run render:resumed`: Build and render your resume
-- `npm run generate-types`: Generate TypeScript types from JSON schema
-- `npm run test`: Run test suite
-- `npm run check`: Run Biome
-- `npm run lint`: Lint with Biome
-- `npm run format`: Format with Biome
+- `bun dev`: Start development server
+- `bun build`: Build the theme for production
+- `bun run render:resumed`: Build and render your resume
+- `bun run generate-types`: Generate TypeScript types from JSON schema
+- `bun run test`: Run test suite
+- `bun run check`: Run Biome
+- `bun run lint`: Lint with Biome
+- `bun run format`: Format with Biome
 
 ## Project Structure
 
@@ -109,7 +108,3 @@ The theme supports multiple languages using the `language` property within your 
 ├── public/            # Static assets
 └── resume.json        # Sample resume
 ```
-
-## License
-
-MIT

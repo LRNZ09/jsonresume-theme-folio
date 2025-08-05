@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import { useTranslations } from 'use-intl';
-import { BsGlobe } from 'react-icons/bs';
-import { getContactIcon } from '../../lib/socialIcons';
+import { AtIcon, GlobeIcon, PhoneIcon } from '@phosphor-icons/react';
 
 interface ContactInfoProps {
 	email?: string;
@@ -11,8 +10,6 @@ interface ContactInfoProps {
 
 export const ContactInfo: FC<ContactInfoProps> = ({ email, phone, url }) => {
 	const t = useTranslations();
-	const { icon: EmailIcon, color: emailColor } = getContactIcon('email');
-	const { icon: PhoneIcon, color: phoneColor } = getContactIcon('phone');
 
 	return (
 		<div
@@ -23,11 +20,10 @@ export const ContactInfo: FC<ContactInfoProps> = ({ email, phone, url }) => {
 			{email && (
 				<a
 					href={`mailto:${email}`}
-					className='flex gap-2 items-center transition-colors hover:text-brand print:gap-1'
+					className='flex items-center gap-2 transition-colors hover:text-brand print:gap-1'
 					aria-label={`${t('common.email')}: ${email}`}
 				>
-					<EmailIcon
-						style={{ color: emailColor }}
+					<AtIcon
 						className='w-4 h-4 text-brand print:w-3 print:h-3'
 						aria-hidden='true'
 					/>
@@ -37,11 +33,10 @@ export const ContactInfo: FC<ContactInfoProps> = ({ email, phone, url }) => {
 			{phone && (
 				<a
 					href={`tel:${phone}`}
-					className='flex gap-2 items-center transition-colors hover:text-brand print:gap-1'
+					className='flex items-center gap-2 transition-colors hover:text-brand print:gap-1'
 					aria-label={`${t('common.phone')}: ${phone}`}
 				>
 					<PhoneIcon
-						style={{ color: phoneColor }}
 						className='w-4 h-4 text-brand print:flex'
 						aria-hidden='true'
 					/>
@@ -53,10 +48,10 @@ export const ContactInfo: FC<ContactInfoProps> = ({ email, phone, url }) => {
 					href={url}
 					target='_blank'
 					rel='noopener noreferrer'
-					className='flex gap-2 items-center transition-colors hover:text-brand print:gap-1'
+					className='flex items-center gap-2 transition-colors hover:text-brand print:gap-1'
 					aria-label={`${t('common.website')}: ${url}`}
 				>
-					<BsGlobe
+					<GlobeIcon
 						className='w-4 h-4 text-brand print:w-4 print:h-4'
 						aria-hidden='true'
 					/>

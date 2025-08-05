@@ -1,9 +1,9 @@
 import type React from 'react';
 import { useFormatter, useTranslations } from 'use-intl';
-import { BsStarFill } from 'react-icons/bs';
 import type { ResumeSchema } from '../types/resumeSchema';
 import { SidebarCard } from './ui/SidebarCard';
 import { SidebarSection } from './ui/SidebarSection';
+import { TrophyIcon } from '@phosphor-icons/react';
 
 type Award = NonNullable<ResumeSchema['awards']>[number];
 
@@ -32,7 +32,7 @@ export const Awards: React.FC<AwardsProps> = ({ awards }) => {
 						title={
 							<div className='flex items-start'>
 								<div className='mr-3 text-brand'>
-									<BsStarFill className='w-5 h-5' />
+									<TrophyIcon />
 								</div>
 								<div>{award.title}</div>
 							</div>

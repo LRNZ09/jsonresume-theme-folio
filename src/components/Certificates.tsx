@@ -1,9 +1,9 @@
 import type React from 'react';
 import { useFormatter, useTranslations } from 'use-intl';
-import { BsAward } from 'react-icons/bs';
 import type { ResumeSchema } from '../types/resumeSchema';
 import { SidebarCard } from './ui/SidebarCard';
 import { SidebarSection } from './ui/SidebarSection';
+import { CertificateIcon } from '@phosphor-icons/react';
 
 type Certificate = NonNullable<ResumeSchema['certificates']>[number];
 
@@ -30,7 +30,7 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates }) => {
 						title={
 							<div className='flex items-start'>
 								<div className='mr-3 text-brand'>
-									<BsAward className='w-5 h-5' />
+									<CertificateIcon />
 								</div>
 								<div>{certificate.name}</div>
 							</div>

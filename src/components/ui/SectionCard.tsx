@@ -1,12 +1,11 @@
 import { type FC, memo, type ReactNode } from 'react';
 import { useTranslations } from 'use-intl';
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import { getContactIcon } from '../../lib/socialIcons';
 import { borders, colors, spacing, typography } from '../../lib/styleTokens';
 import { cn } from '../../lib/utils';
 import { Markdown } from './Markdown';
 import { Tag } from './Tag';
 import { TagList } from './TagList';
+import { ArrowSquareOutIcon, MapPinIcon } from '@phosphor-icons/react';
 
 interface SectionCardProps {
 	title?: string;
@@ -43,8 +42,6 @@ export const SectionCard: FC<SectionCardProps> = memo(
 		actionLabelKey,
 	}) => {
 		const t = useTranslations();
-		const { icon: LocationIcon, color: locationColor } =
-			getContactIcon('location');
 
 		const cardId = id ? `card-${id}` : undefined;
 		const titleId = title ? `title-${cardId}` : undefined;
@@ -104,10 +101,7 @@ export const SectionCard: FC<SectionCardProps> = memo(
 							<div
 								className={`flex items-center ${typography.size.sm} ${typography.color.secondary} ${typography.size.print.sm}`}
 							>
-								<LocationIcon
-									className='mr-1 w-3 h-3'
-									style={{ color: locationColor }}
-								/>
+								<MapPinIcon className='w-3 h-3 mr-1' />
 								{location}
 							</div>
 						)}
@@ -170,7 +164,7 @@ export const SectionCard: FC<SectionCardProps> = memo(
 							className={`mt-1 inline-flex items-center ${typography.size.sm} ${typography.color.brand} hover:underline print:hidden`}
 						>
 							{t(actionLabelKey)}
-							<FaExternalLinkAlt className='ml-1.5 h-3 w-3' />
+							<ArrowSquareOutIcon className='ml-1.5 h-3 w-3' />
 						</a>
 					)}
 

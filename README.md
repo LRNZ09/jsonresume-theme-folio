@@ -92,8 +92,9 @@ The theme supports multiple languages using the `language` property within your 
 - `npm run render:resumed`: Build and render your resume
 - `npm run generate-types`: Generate TypeScript types from JSON schema
 - `npm run test`: Run test suite
-- `npm run lint`: Run ESLint
-- `npm run format`: Format code with Prettier
+- `npm run check`: Run Biome
+- `npm run lint`: Lint with Biome
+- `npm run format`: Format with Biome
 
 ## Project Structure
 

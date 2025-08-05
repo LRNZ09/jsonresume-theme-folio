@@ -1,5 +1,5 @@
 // Import generated schema
-import { ResumeSchema } from './resumeSchema';
+import type { ResumeSchema } from './resumeSchema';
 
 // Basic types from schema
 export type Resume = ResumeSchema;
@@ -20,7 +20,7 @@ type BaseVolunteer = NonNullable<Resume['volunteer']>[number];
 
 // Extended types with custom fields
 export interface Work extends BaseWork {
-  keywords?: string[]; // Add support for keywords in work experiences
+	keywords?: string[]; // Add support for keywords in work experiences
 }
 
 // Export remaining types without modifications

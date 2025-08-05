@@ -11,22 +11,22 @@
  * Falls back to resume.json if the language-specific resume doesn't exist.
  */
 
+import { spawn } from 'child_process';
 import fs from 'fs';
+import minimist from 'minimist';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { spawn } from 'child_process';
-import minimist from 'minimist';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, '..');
 
 // Parse command line arguments
 const argv = minimist(process.argv.slice(2), {
-  string: ['lang', 'resume'],
-  default: {
-    lang: 'en',
-    resume: null,
-  },
+	string: ['lang', 'resume'],
+	default: {
+		lang: 'en',
+		resume: null,
+	},
 });
 
 // Get the language parameter
@@ -35,47 +35,51 @@ const lang = argv.lang;
 // Determine resume path
 let resumePath = argv.resume;
 if (!resumePath) {
-  // Only use language-specific resume for non-English languages or if explicitly requested
-  if (lang !== 'en') {
-    // Try language-specific resume first (e.g., resume-it.json)
-    const langSpecificResume = path.join(rootDir, `resume-${lang}.json`);
-    if (fs.existsSync(langSpecificResume)) {
-      resumePath = langSpecificResume;
-      console.log(`Using language-specific resume: ${langSpecificResume}`);
-    } else {
-      // Fall back to default resume.json
-      const defaultResume = path.join(rootDir, 'resume.json');
-      if (fs.existsSync(defaultResume)) {
-        resumePath = defaultResume;
-        console.log(`Using default resume.json (no resume-${lang}.json found)`);
-      } else {
-        console.error('Error: No resume file found. Create resume.json in the root directory.');
-        process.exit(1);
-      }
-    }
-  } else {
-    // For English, always use the default resume.json
-    const defaultResume = path.join(rootDir, 'resume.json');
-    if (fs.existsSync(defaultResume)) {
-      resumePath = defaultResume;
-      console.log('Using default resume.json for English');
-    } else {
-      console.error('Error: No resume file found. Create resume.json in the root directory.');
-      process.exit(1);
-    }
-  }
+	// Only use language-specific resume for non-English languages or if explicitly requested
+	if (lang !== 'en') {
+		// Try language-specific resume first (e.g., resume-it.json)
+		const langSpecificResume = path.join(rootDir, `resume-${lang}.json`);
+		if (fs.existsSync(langSpecificResume)) {
+			resumePath = langSpecificResume;
+			console.log(`Using language-specific resume: ${langSpecificResume}`);
+		} else {
+			// Fall back to default resume.json
+			const defaultResume = path.join(rootDir, 'resume.json');
+			if (fs.existsSync(defaultResume)) {
+				resumePath = defaultResume;
+				console.log(`Using default resume.json (no resume-${lang}.json found)`);
+			} else {
+				console.error(
+					'Error: No resume file found. Create resume.json in the root directory.',
+				);
+				process.exit(1);
+			}
+		}
+	} else {
+		// For English, always use the default resume.json
+		const defaultResume = path.join(rootDir, 'resume.json');
+		if (fs.existsSync(defaultResume)) {
+			resumePath = defaultResume;
+			console.log('Using default resume.json for English');
+		} else {
+			console.error(
+				'Error: No resume file found. Create resume.json in the root directory.',
+			);
+			process.exit(1);
+		}
+	}
 } else {
-  // Use provided resume path
-  const absoluteResumePath = path.isAbsolute(resumePath)
-    ? resumePath
-    : path.join(rootDir, resumePath);
+	// Use provided resume path
+	const absoluteResumePath = path.isAbsolute(resumePath)
+		? resumePath
+		: path.join(rootDir, resumePath);
 
-  if (!fs.existsSync(absoluteResumePath)) {
-    console.error(`Error: Resume file not found at ${absoluteResumePath}`);
-    process.exit(1);
-  }
+	if (!fs.existsSync(absoluteResumePath)) {
+		console.error(`Error: Resume file not found at ${absoluteResumePath}`);
+		process.exit(1);
+	}
 
-  resumePath = absoluteResumePath;
+	resumePath = absoluteResumePath;
 }
 
 // Set environment variables
@@ -83,8 +87,8 @@ process.env.VITE_LANGUAGE = lang;
 
 // Replace resume.json with our language-specific resume if needed
 if (resumePath !== path.join(rootDir, 'resume.json')) {
-  console.log(`Using ${path.basename(resumePath)} for this session...`);
-  fs.copyFileSync(resumePath, path.join(rootDir, 'resume.json'));
+	console.log(`Using ${path.basename(resumePath)} for this session...`);
+	fs.copyFileSync(resumePath, path.join(rootDir, 'resume.json'));
 }
 
 console.log(`Starting dev server with language: ${lang}`);
@@ -92,12 +96,12 @@ console.log(`Using resume: ${resumePath}`);
 
 // Start the Vite dev server
 const vite = spawn('npx', ['vite'], {
-  stdio: 'inherit',
-  shell: true,
-  env: { ...process.env },
+	stdio: 'inherit',
+	shell: true,
+	env: { ...process.env },
 });
 
-vite.on('error', error => {
-  console.error('Failed to start dev server:', error);
-  process.exit(1);
+vite.on('error', (error) => {
+	console.error('Failed to start dev server:', error);
+	process.exit(1);
 });

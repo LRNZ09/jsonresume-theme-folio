@@ -8,7 +8,7 @@ import type { Locale } from './i18n/config';
 const language = (import.meta.env.VITE_LANGUAGE as Locale) || 'en';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App resume={resumeData} language={language} />
-  </StrictMode>
+	<StrictMode>
+		<App resume={resumeData} language={language} />
+	</StrictMode>,
 );

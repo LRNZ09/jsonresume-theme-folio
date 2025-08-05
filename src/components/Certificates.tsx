@@ -1,7 +1,6 @@
 import type React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useFormatter, useTranslations } from 'use-intl';
 import { BsAward } from 'react-icons/bs';
-import { useDate } from '../lib/hooks/useDate';
 import type { ResumeSchema } from '../types/resumeSchema';
 import { SidebarCard } from './ui/SidebarCard';
 import { SidebarSection } from './ui/SidebarSection';
@@ -13,16 +12,16 @@ interface CertificatesProps {
 }
 
 export const Certificates: React.FC<CertificatesProps> = ({ certificates }) => {
-	if (!certificates?.length) return null;
+	const f = useFormatter();
+	const t = useTranslations();
 
-	const { t } = useTranslation();
+	if (!certificates?.length) return null;
 
 	return (
 		<SidebarSection title='sections.certificates' contentClassName='space-y-3'>
 			{certificates.map((certificate, index) => {
-				const formattedDate = useDate(certificate.date);
 				const dateInfo = certificate.date
-					? `${t('date.label')}: ${formattedDate}`
+					? `${t('date.label')}: ${f.dateTime(new Date(certificate.date))}`
 					: '';
 
 				return (

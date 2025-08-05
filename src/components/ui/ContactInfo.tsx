@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'use-intl';
 import { BsGlobe } from 'react-icons/bs';
 import { getContactIcon } from '../../lib/socialIcons';
 
@@ -10,7 +10,7 @@ interface ContactInfoProps {
 }
 
 export const ContactInfo: FC<ContactInfoProps> = ({ email, phone, url }) => {
-	const { t } = useTranslation();
+	const t = useTranslations();
 	const { icon: EmailIcon, color: emailColor } = getContactIcon('email');
 	const { icon: PhoneIcon, color: phoneColor } = getContactIcon('phone');
 

@@ -1,5 +1,5 @@
 import { type FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'use-intl';
 import { getIcon } from '../../lib/socialIcons';
 import type { ResumeSchema } from '../../types/resumeSchema';
 
@@ -8,7 +8,7 @@ interface SocialProfilesProps {
 }
 
 export const SocialProfiles: FC<SocialProfilesProps> = memo(({ profiles }) => {
-	const { t } = useTranslation();
+	const t = useTranslations();
 
 	if (!profiles || profiles.length === 0) return null;
 

@@ -1,12 +1,8 @@
 import type React from 'react';
-// import { useTranslation } from 'react-i18next'; // No longer needed here
 import type { ResumeSchema } from '../types/resumeSchema';
 import { SectionCard } from './ui/SectionCard';
 import { TimelineEntry } from './ui/TimelineEntry';
 import { TimelineSection } from './ui/TimelineSection';
-
-// import { typography } from '../lib/styleTokens'; // No longer needed here
-// import { FaExternalLinkAlt } from 'react-icons/fa'; // No longer needed here
 
 type Project = NonNullable<ResumeSchema['projects']>[number];
 interface ProjectsProps {
@@ -14,7 +10,6 @@ interface ProjectsProps {
 }
 
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-	// const { t } = useTranslation(); // No longer needed here
 	if (!projects?.length) return null;
 
 	return (
@@ -35,7 +30,6 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 						actionUrl={project.url} // Pass URL for the action link
 						actionLabelKey='common.viewProject' // Pass translation key for the label
 					/>
-					{/* Link is now rendered inside SectionCard */}
 				</TimelineEntry>
 			))}
 		</TimelineSection>

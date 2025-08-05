@@ -12,12 +12,22 @@ import { References } from './References';
 import { Skills } from './Skills';
 import { Volunteer } from './Volunteer';
 import { WorkExperience } from './WorkExperience';
+import { useTranslations } from 'use-intl';
 
 interface ResumeProps {
-	resume: ResumeSchema;
+	resume?: ResumeSchema;
 }
 
 export const Resume: FC<ResumeProps> = memo(({ resume }) => {
+	const t = useTranslations('language');
+	return (
+		<div
+			className={`container p-3 mx-auto lg:w-[960px] bg-color text-text print:max-w-full print:p-0 print:w-full print:px-6`}
+		>
+			<p>{t('testDescription')}</p>
+		</div>
+	);
+
 	const {
 		basics,
 		work,

@@ -1,7 +1,6 @@
 import type React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useFormatter, useTranslations } from 'use-intl';
 import { BsStarFill } from 'react-icons/bs';
-import { useDate } from '../lib/hooks/useDate';
 import type { ResumeSchema } from '../types/resumeSchema';
 import { SidebarCard } from './ui/SidebarCard';
 import { SidebarSection } from './ui/SidebarSection';
@@ -13,18 +12,18 @@ interface AwardsProps {
 }
 
 export const Awards: React.FC<AwardsProps> = ({ awards }) => {
+	const f = useFormatter();
+	const t = useTranslations();
+
 	if (!awards?.length) {
 		return null;
 	}
 
-	const { t } = useTranslation();
-
 	return (
 		<SidebarSection title='sections.awards'>
 			{awards.map((award, index) => {
-				const formattedDate = useDate(award.date);
 				const dateInfo = award.date
-					? `${t('date.label')}: ${formattedDate}`
+					? `${t('date.label')}: ${f.dateTime(new Date(award.date))}`
 					: '';
 
 				return (

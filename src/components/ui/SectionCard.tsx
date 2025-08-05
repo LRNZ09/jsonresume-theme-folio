@@ -1,5 +1,5 @@
 import { type FC, memo, type ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'use-intl';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { getContactIcon } from '../../lib/socialIcons';
 import { borders, colors, spacing, typography } from '../../lib/styleTokens';
@@ -42,7 +42,7 @@ export const SectionCard: FC<SectionCardProps> = memo(
 		actionUrl,
 		actionLabelKey,
 	}) => {
-		const { t } = useTranslation();
+		const t = useTranslations();
 		const { icon: LocationIcon, color: locationColor } =
 			getContactIcon('location');
 

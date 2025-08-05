@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'use-intl';
 import { colors } from '../../lib/styleTokens';
 import { cn } from '../../lib/utils';
 
@@ -16,7 +16,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({
 	id,
 	className,
 }) => {
-	const { t } = useTranslation();
+	const t = useTranslations();
 	const content = children || (title ? t(title) : null);
 
 	return (

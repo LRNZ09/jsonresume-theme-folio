@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'use-intl';
 import { cn } from '../../lib/utils';
 
 interface SubtitleProps {
@@ -13,7 +13,7 @@ export const Subtitle: FC<SubtitleProps> = ({
 	subtitle,
 	subtitleUrl,
 }) => {
-	const { t } = useTranslation();
+	const t = useTranslations();
 
 	if (!subtitle) return <>{title}</>;
 

@@ -1,25 +1,27 @@
 import type React from 'react';
 import type { ReactNode } from 'react';
-import { useDate, useDateRange, useDuration } from '../../lib/hooks/useDate';
+import { useDuration } from '../../lib/hooks/useDuration';
+import { useFormatter } from 'use-intl';
 
 interface TimelineEntryProps {
+	// ! FIXME: Use Date type for startDate and endDate
 	startDate?: string;
 	endDate?: string;
 	children: ReactNode;
-	singleDate?: boolean;
 }
 
 export const TimelineEntry: React.FC<TimelineEntryProps> = ({
 	startDate,
 	endDate,
 	children,
-	singleDate = false,
 }) => {
-	const formattedDate = useDate(startDate);
-	const dateRange = useDateRange(startDate, endDate);
+	const f = useFormatter();
 	const duration = useDuration(startDate, endDate);
 
-	const dateDisplay = singleDate ? formattedDate : dateRange;
+	const dateRange =
+		startDate && endDate
+			? f.dateTimeRange(new Date(startDate), new Date(endDate))
+			: '';
 
 	return (
 		<div
@@ -30,9 +32,9 @@ export const TimelineEntry: React.FC<TimelineEntryProps> = ({
 				<div className='mb-2 text-sm print:mb-1 print:text-[9px]'>
 					<div className='flex items-center'>
 						<span className='font-medium text-foreground' role='time'>
-							{dateDisplay}
+							{dateRange}
 						</span>
-						{!singleDate && duration && (
+						{!!duration && (
 							<span
 								className='ml-2 text-sm text-foreground-tertiary print:ml-1'
 								role='time'

@@ -1,6 +1,6 @@
 import type React from 'react'
-import type { ReactNode } from 'react'
-import { useDuration } from '../../lib/hooks/useDuration'
+import { useMemo, type ReactNode } from 'react'
+import { formatDuration, intervalToDuration } from 'date-fns'
 import { useFormatter } from 'use-intl'
 
 interface TimelineEntryProps {
@@ -16,38 +16,45 @@ export const TimelineEntry: React.FC<TimelineEntryProps> = ({
 	children,
 }) => {
 	const f = useFormatter()
-	const duration = useDuration(startDate, endDate)
 
-	const dateRange =
-		startDate && endDate
-			? f.dateTimeRange(new Date(startDate), new Date(endDate))
-			: ''
+	const dateRange = useMemo(
+		() =>
+			startDate && endDate
+				? f.dateTimeRange(new Date(startDate), new Date(endDate))
+				: '',
+		[startDate, endDate, f.dateTimeRange],
+	)
+
+	// TODO: Not localized yet
+	const duration = useMemo(
+		() =>
+			startDate
+				? formatDuration(
+						intervalToDuration({
+							start: new Date(startDate),
+							end: endDate ? new Date(endDate) : new Date(),
+						}),
+					)
+				: '',
+		[startDate, endDate],
+	)
 
 	return (
-		<div
-			className='mb-4 print:m-0 print:py-2 print:border-b print:border-color'
-			role='article'
-		>
+		<article className='mb-4 print:m-0 print:py-2 print:border-b print:border-color'>
 			{startDate && (
 				<div className='mb-2 text-sm print:mb-1 print:text-[9px]'>
 					<div className='flex items-center'>
-						<span className='font-medium text-foreground' role='time'>
-							{dateRange}
-						</span>
+						<time className='font-medium text-foreground'>{dateRange}</time>
 						{!!duration && (
-							<span
-								className='ml-2 text-sm text-foreground-tertiary print:ml-1'
-								role='time'
-								aria-label={`Duration: ${duration}`}
-							>
+							<time className='ml-2 text-sm text-foreground-tertiary print:ml-1'>
 								({duration})
-							</span>
+							</time>
 						)}
 					</div>
 				</div>
 			)}
 
 			{children}
-		</div>
+		</article>
 	)
 }

@@ -11,14 +11,6 @@ interface AppProps {
 }
 
 const App: FC<AppProps> = ({ resume, locale = 'en' }) => {
-	// useEffect(() => {
-	// 	console.log('Setting language to:', language);
-	// 	i18n.changeLanguage(language);
-
-	// 	const html = document.documentElement;
-	// 	html.setAttribute('lang', language);
-	// }, [language]);
-
 	return (
 		<IntlProvider
 			messages={locales[locale].messages}

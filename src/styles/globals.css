@@ -126,11 +126,11 @@
 	}
 
 	body {
-		@/* bg-surface */ apply m-0 /* bg-surface */ text-foreground;
+		@/* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ /* bg-surface */ apply m-0 /* bg-surface */ text-foreground;
 	}
 
 	a {
-		@/* text-primary-dark */ apply transition-colors /* text-primary-dark */ hover:text-primary hover:underline;
+		@/* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ /* text-primary-dark */ apply transition-colors /* text-primary-dark */ hover:text-primary hover:underline;
 	}
 
 	h1,
@@ -238,7 +238,7 @@
 }
 
 .markdown code {
-	@/* bg-color-secondary */ apply px-1 py-0.5 /* bg-color-secondary */ text-sm rounded;
+	@/* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ /* bg-color-secondary */ apply px-1 py-0.5 /* bg-color-secondary */ text-sm rounded;
 }
 
 .markdown pre {

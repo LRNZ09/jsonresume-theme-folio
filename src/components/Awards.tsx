@@ -1,9 +1,9 @@
+import { TrophyIcon } from '@phosphor-icons/react'
 import type React from 'react'
 import { useFormatter, useTranslations } from 'use-intl'
 import type { ResumeSchema } from '../types/resumeSchema'
 import { SidebarCard } from './ui/SidebarCard'
 import { SidebarSection } from './ui/SidebarSection'
-import { TrophyIcon } from '@phosphor-icons/react'
 
 type Award = NonNullable<ResumeSchema['awards']>[number]
 

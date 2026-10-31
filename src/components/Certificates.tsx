@@ -1,9 +1,9 @@
+import { CertificateIcon } from '@phosphor-icons/react'
 import type React from 'react'
 import { useFormatter, useTranslations } from 'use-intl'
 import type { ResumeSchema } from '../types/resumeSchema'
 import { SidebarCard } from './ui/SidebarCard'
 import { SidebarSection } from './ui/SidebarSection'
-import { CertificateIcon } from '@phosphor-icons/react'
 
 type Certificate = NonNullable<ResumeSchema['certificates']>[number]
 

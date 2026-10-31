@@ -39,13 +39,12 @@ export const SidebarCard: FC<SidebarCardProps> = memo(
 		const contentId = `${cardId}-content`
 
 		return (
-			<div
+			<section
 				className={cn(
 					`${spacing.card.margin.sidebar} ${spacing.card.padding.sidebar} ${colors.bg.highlight} ${borders.radius.default} ${borders.width.left} ${borders.color.brand} ${spacing.card.padding.print}`,
 					'print:border-l-0 print:pl-0 print:pt-0 print:pb-1',
 					className,
 				)}
-				role='region'
 				id={cardId}
 				aria-labelledby={title ? titleId : undefined}
 				aria-describedby={content ? contentId : undefined}
@@ -77,11 +76,7 @@ export const SidebarCard: FC<SidebarCardProps> = memo(
 				<div
 					className={`flex flex-wrap ${spacing.card.gap.default} mt-0.5 ${typography.size.sm} print:mt-0.5 print:gap-1 ${typography.size.print.sm}`}
 				>
-					{date && (
-						<span className={typography.color.tertiary} role='time'>
-							{date}
-						</span>
-					)}
+					{date && <time className={typography.color.tertiary}>{date}</time>}
 
 					{url && (
 						<a
@@ -97,17 +92,16 @@ export const SidebarCard: FC<SidebarCardProps> = memo(
 				</div>
 
 				{content && (
-					<div
+					<footer
 						id={contentId}
 						className={`mt-1 ${typography.size.sm} ${typography.color.secondary} ${typography.size.print.sm} print:mt-0.5`}
-						role='contentinfo'
 					>
 						<Markdown content={content} />
-					</div>
+					</footer>
 				)}
 
 				{children && <div className='mt-1.5 print:mt-0.5'>{children}</div>}
-			</div>
+			</section>
 		)
 	},
 )

@@ -1,6 +1,6 @@
+import { AtIcon, GlobeIcon, PhoneIcon } from '@phosphor-icons/react'
 import type { FC } from 'react'
 import { useTranslations } from 'use-intl'
-import { AtIcon, GlobeIcon, PhoneIcon } from '@phosphor-icons/react'
 
 interface ContactInfoProps {
 	email?: string
@@ -12,11 +12,7 @@ export const ContactInfo: FC<ContactInfoProps> = ({ email, phone, url }) => {
 	const t = useTranslations()
 
 	return (
-		<div
-			className='flex flex-wrap gap-6 mt-4 text-sm text-foreground-tertiary print:mt-0 print:align-middle'
-			role='contentinfo'
-			aria-label={t('common.contactInfo')}
-		>
+		<div className='flex flex-wrap gap-6 mt-4 text-sm text-foreground-tertiary print:mt-0 print:align-middle'>
 			{email && (
 				<a
 					href={`mailto:${email}`}

@@ -5,13 +5,16 @@
  * It is included in `src/index.html`.
  */
 
-import { createRoot } from 'react-dom/client'
-import { App } from './app'
 import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 import resume from '../resume.json'
+import { App } from './app'
 
 function start() {
-	const root = createRoot(document.getElementById('root')!)
+	const rootEl = document.getElementById('root')
+	if (!rootEl) return
+
+	const root = createRoot(rootEl)
 	root.render(
 		<StrictMode>
 			<App resume={resume} />

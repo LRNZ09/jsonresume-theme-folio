@@ -1,3 +1,4 @@
+import { ArrowSquareOutIcon, MapPinIcon } from '@phosphor-icons/react'
 import { type FC, memo, type ReactNode } from 'react'
 import { useTranslations } from 'use-intl'
 import { borders, colors, spacing, typography } from '../../lib/styleTokens'
@@ -5,7 +6,6 @@ import { cn } from '../../lib/utils'
 import { Markdown } from './Markdown'
 import { Tag } from './Tag'
 import { TagList } from './TagList'
-import { ArrowSquareOutIcon, MapPinIcon } from '@phosphor-icons/react'
 
 interface SectionCardProps {
 	title?: string
@@ -22,6 +22,7 @@ interface SectionCardProps {
 	id?: string
 	actionUrl?: string
 	actionLabelKey?: string
+	addonAfterTitle?: ReactNode
 }
 
 export const SectionCard: FC<SectionCardProps> = memo(
@@ -40,6 +41,7 @@ export const SectionCard: FC<SectionCardProps> = memo(
 		id,
 		actionUrl,
 		actionLabelKey,
+		addonAfterTitle,
 	}) => {
 		const t = useTranslations()
 
@@ -49,14 +51,13 @@ export const SectionCard: FC<SectionCardProps> = memo(
 		const highlightsId = highlights?.length ? `highlights-${cardId}` : undefined
 
 		return (
-			<div
+			<article
 				className={cn(
 					`${spacing.card.padding.default} ${borders.radius.lg} ${spacing.card.margin.default} ${colors.bg.card}`,
 					'border border-transparent transition-shadow hover:shadow-sm hover:border-color',
 					'print:bg-transparent print:hover:border-transparent print:hover:shadow-none print:p-0',
 					className,
 				)}
-				role='article'
 				id={cardId}
 				aria-labelledby={titleId}
 				aria-describedby={
@@ -67,21 +68,21 @@ export const SectionCard: FC<SectionCardProps> = memo(
 					className={`flex flex-col ${spacing.card.gap.default} ${spacing.card.gap.print}`}
 				>
 					{title && (
-						<div>
+						<div className='flex items-start justify-between gap-2'>
 							<h3
 								id={titleId}
-								className={`${typography.weight.medium} ${typography.size.base}`}
+								className={`${typography.weight.medium} ${typography.size.base} flex-1`}
 							>
 								{title}
 								{subtitle && (
 									<span className={typography.color.secondary}>
-										{` ${t('common.at', 'at')} `}
+										{` ${t('common.at')} `}
 										{url ? (
 											<a
 												href={url}
 												target='_blank'
 												rel='noopener noreferrer'
-												className={typography.color.brand + ' hover:underline'}
+												className={`${typography.color.brand} hover:underline`}
 											>
 												{subtitle}
 											</a>
@@ -91,6 +92,11 @@ export const SectionCard: FC<SectionCardProps> = memo(
 									</span>
 								)}
 							</h3>
+							{addonAfterTitle && (
+								<div className='flex-shrink-0 mt-0.5 print:hidden'>
+									{addonAfterTitle}
+								</div>
+							)}
 						</div>
 					)}
 
@@ -168,7 +174,7 @@ export const SectionCard: FC<SectionCardProps> = memo(
 
 					{children && <div className='mt-2 print:mt-0.5'>{children}</div>}
 				</div>
-			</div>
+			</article>
 		)
 	},
 )

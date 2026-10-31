@@ -1,9 +1,9 @@
+import { HouseLineIcon } from '@phosphor-icons/react'
 import { type FC, memo } from 'react'
 import type { ResumeSchema } from '../types/resumeSchema'
 import { Summary } from './Summary'
 import { ContactInfo } from './ui/ContactInfo'
 import { SocialProfiles } from './ui/SocialProfiles'
-import { HouseLineIcon } from '@phosphor-icons/react'
 
 interface HeaderProps {
 	basics: NonNullable<ResumeSchema['basics']>
@@ -36,11 +36,7 @@ export const Header: FC<HeaderProps> = memo(({ basics }) => {
 				</div>
 
 				{location && (
-					<div
-						className='flex items-center gap-2 print:gap-1'
-						role='contentinfo'
-						aria-label='Location'
-					>
+					<div className='flex items-center gap-2 print:gap-1'>
 						<HouseLineIcon
 							className='w-4 h-4 text-brand print:w-3 print:h-3'
 							aria-hidden='true'

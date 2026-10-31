@@ -26,7 +26,6 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
 							{skill.level}
 						</span>
 					)}
-
 					{skill.keywords && skill.keywords.length > 0 && (
 						<TagList className='mt-1'>
 							{skill.keywords.map((keyword, keywordIndex) => (

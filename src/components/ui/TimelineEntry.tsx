@@ -1,6 +1,6 @@
-import type React from 'react'
-import { useMemo, type ReactNode } from 'react'
 import { formatDuration, intervalToDuration } from 'date-fns'
+import type React from 'react'
+import { type ReactNode, useMemo } from 'react'
 import { useFormatter } from 'use-intl'
 
 interface TimelineEntryProps {
